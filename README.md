@@ -8,6 +8,7 @@
 - ReactCopyToClipboard
 - Use sound
 
+
 ## Getting Started
 
 First, run the development server:
@@ -22,7 +23,7 @@ NEXT_PUBLIC_GOOGLE_SHEET="YOUR_CSV_URL"
 Then run
 
 ```bash
-npm run dev
+npm run dev --force // Si usas esta config de eslintrc
 # or
 yarn dev
 ```
