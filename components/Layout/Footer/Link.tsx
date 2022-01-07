@@ -2,8 +2,6 @@ import {Link as LinkChakra, LinkProps} from "@chakra-ui/react";
 import React from "react";
 
 const LinkFooter: React.FC<LinkProps> = ({children, ...props}) => {
-  const primary = "FEFCBF";
-
   return (
     <>
       {" "}
