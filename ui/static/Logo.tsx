@@ -25,6 +25,7 @@ const Logo: React.FC<TextProps> = ({...props}) => {
       my={"auto"}
       position={"relative"}
       transition="all .4s ease"
+      userSelect={"none"}
       {...props}
     >
       {"<AEM/>"}
