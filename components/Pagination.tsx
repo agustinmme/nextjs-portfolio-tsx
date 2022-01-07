@@ -10,6 +10,23 @@ interface Props {
 }
 
 const Pagination: React.FC<Props> = ({next, back, currentPage, maxPage}) => {
+  const handlerNext = () => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+    next();
+  };
+  const handlerBack = () => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+    back();
+  };
+
   return (
     <>
       <Stack isInline alignItems={"center"} gap={5} justifyContent={"center"} mt="10">
@@ -19,7 +36,7 @@ const Pagination: React.FC<Props> = ({next, back, currentPage, maxPage}) => {
           fontSize="xl"
           icon={<IoIosArrowBack />}
           variant="ghost"
-          onClick={() => back()}
+          onClick={handlerBack}
         />
         <Text _hover={{color: "secondary.600"}} cursor={"default"} fontSize="xl">
           {currentPage}
@@ -36,7 +53,7 @@ const Pagination: React.FC<Props> = ({next, back, currentPage, maxPage}) => {
           fontSize="xl"
           icon={<IoIosArrowForward />}
           variant="ghost"
-          onClick={() => next()}
+          onClick={handlerNext}
         />
       </Stack>
     </>
