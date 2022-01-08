@@ -4,7 +4,6 @@ import React from "react";
 import Logo from "../../../ui/static/Logo";
 
 import Link from "./Link";
-import Confetti from "./Confetti";
 
 interface Props {}
 
@@ -29,9 +28,7 @@ const Footer: React.FC<Props> = () => {
           }}
           align={"center"}
         >
-          <Confetti>
-            <Logo />
-          </Confetti>
+          <Logo />
         </Flex>
         <Text fontSize={"sm"} pt={6} textAlign={"center"}>
           Built with
