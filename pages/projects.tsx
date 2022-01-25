@@ -5,7 +5,7 @@ import React from "react";
 import {list} from "../libs/paparse";
 import Projects from "../screens/Projects";
 import {IProject} from "../types";
-import withTransition from "../ui/HOC/withTransition";
+
 interface Props {
   projects: IProject[];
 }
