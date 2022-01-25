@@ -6,4 +6,7 @@ export interface IProject {
   github: string;
   github2: string;
   deploy: string;
+  image: string;
+  video: string;
+  lib: string;
 }
