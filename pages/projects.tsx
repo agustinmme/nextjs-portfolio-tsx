@@ -3,8 +3,9 @@ import type {GetStaticProps} from "next";
 import React from "react";
 
 import {list} from "../libs/paparse";
-import Project from "../screens/Project";
+import Projects from "../screens/Projects";
 import {IProject} from "../types";
+import withTransition from "../ui/HOC/withTransition";
 interface Props {
   projects: IProject[];
 }
@@ -12,7 +13,7 @@ interface Props {
 const ProjectRoute: React.FC<Props> = ({projects}) => {
   return (
     <>
-      <Project projects={projects} />
+      <Projects data={projects} />
     </>
   );
 };

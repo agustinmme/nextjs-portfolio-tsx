@@ -2,11 +2,17 @@ import React from "react";
 import {ChakraProvider} from "@chakra-ui/react";
 import {AppProps} from "next/app";
 import Head from "next/head";
+import {motion, AnimatePresence} from "framer-motion";
 
 import theme from "../styles/theme";
 import Layout from "../components/Layout";
+const App: React.FC<AppProps> = ({Component, pageProps, router}) => {
+  const variants = {
+    hidden: {opacity: 0, x: -200, y: 0},
+    enter: {opacity: 1, x: 0, y: 0},
+    exit: {opacity: 0, x: 0, y: -100},
+  };
 
-const App: React.FC<AppProps> = ({Component, pageProps}) => {
   return (
     <>
       <Head>
@@ -28,7 +34,22 @@ const App: React.FC<AppProps> = ({Component, pageProps}) => {
       </Head>
       <ChakraProvider theme={theme}>
         <Layout>
-          <Component {...pageProps} />
+          <AnimatePresence
+            exitBeforeEnter
+            initial={false}
+            onExitComplete={() => window.scrollTo(0, 0)}
+          >
+            <motion.div
+              key={router.pathname}
+              animate="enter"
+              exit="exit"
+              initial="hidden"
+              transition={{type: "linear"}}
+              variants={variants}
+            >
+              <Component {...pageProps} />
+            </motion.div>
+          </AnimatePresence>
         </Layout>
       </ChakraProvider>
     </>

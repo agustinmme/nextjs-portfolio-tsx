@@ -1,9 +1,17 @@
-import {FormControl, FormLabel, Input, InputGroup, Textarea, VStack} from "@chakra-ui/react";
+import {
+  FormControl,
+  FormLabel,
+  Input,
+  InputGroup,
+  Textarea,
+  VStack,
+  Button,
+  Stack,
+} from "@chakra-ui/react";
 import React from "react";
 
 import {useToast} from "../hook/useToast";
 import {mail} from "../libs/mail";
-import Button from "../ui/controls/Button";
 interface Props {}
 
 //Cambiar Formik && Yup
@@ -19,6 +27,7 @@ const FormContact: React.FC<Props> = () => {
         <VStack
           ref={formRef}
           as="form"
+          rounded={5}
           spacing={5}
           onSubmit={async (e: React.SyntheticEvent) => {
             e.preventDefault();
@@ -63,7 +72,7 @@ const FormContact: React.FC<Props> = () => {
                 focusBorderColor="primary.400"
                 name="email"
                 placeholder="agustinmansilla240@gmail.com"
-                rounded={"none"}
+                rounded={5}
                 size="md"
                 type="email"
               />
@@ -83,13 +92,34 @@ const FormContact: React.FC<Props> = () => {
               id="message"
               name="message"
               placeholder="Hola como estas?"
-              rounded={"none"}
+              rounded={5}
             />
           </FormControl>
-
-          <Button mx="auto" size="lg" type="submit" variant="solid" w="70%">
-            ENVIAR
-          </Button>
+          <FormControl display={"flex"} justifyContent={"flex-end"}>
+            <Stack isInline gap={10} mt={10}>
+              <Button
+                _active={{bg: "black", color: "primary.200"}}
+                _hover={{bg: "black", color: "primary.200"}}
+                bg="primary.200"
+                color={"black"}
+                size="lg"
+                type="submit"
+                variant="solid"
+              >
+                ENVIAR
+              </Button>
+              <Button
+                _active={{color: "black", bg: "primary.200"}}
+                _hover={{color: "black", bg: "primary.200"}}
+                color={"black"}
+                size="lg"
+                type="reset"
+                variant="ghost"
+              >
+                Cancelar
+              </Button>
+            </Stack>
+          </FormControl>
         </VStack>
       }
     </>

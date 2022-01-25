@@ -1,15 +1,11 @@
-import {Heading, Text} from "@chakra-ui/react";
+import {Heading, Text, HeadingProps} from "@chakra-ui/react";
 import React from "react";
 
-interface Props {
-  onClose: () => void;
-}
-
-const NavItem: React.FC<Props> = ({onClose, children}) => {
+const NavItem: React.FC<HeadingProps> = ({children}) => {
   return (
     <>
       <Heading
-        fontSize={"5xl"}
+        fontSize={"xl"}
         fontWeight={"bold"}
         lineHeight={1.1}
         my={2}
@@ -17,6 +13,7 @@ const NavItem: React.FC<Props> = ({onClose, children}) => {
         textTransform={"uppercase"}
       >
         <Text
+          _active={{border: "none"}}
           _before={{
             content: "''",
             width: "0px",
@@ -24,7 +21,7 @@ const NavItem: React.FC<Props> = ({onClose, children}) => {
             position: "absolute",
             bottom: 1,
             left: 0,
-            bg: "primary.100",
+            bg: "primary.200",
             zIndex: -1,
             transition: "all .4s ease",
           }}
@@ -35,8 +32,8 @@ const NavItem: React.FC<Props> = ({onClose, children}) => {
             },
           }}
           as={"span"}
+          border={"none"}
           position={"relative"}
-          onClick={onClose}
         >
           {children}
         </Text>

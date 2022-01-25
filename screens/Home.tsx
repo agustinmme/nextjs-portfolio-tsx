@@ -1,4 +1,4 @@
-import {Box, chakra, Grid, Text} from "@chakra-ui/react";
+import {Box, Grid, Button} from "@chakra-ui/react";
 import React from "react";
 import {
   SiNextdotjs,
@@ -10,83 +10,49 @@ import {
   SiNodedotjs,
   SiReact,
 } from "react-icons/si";
-import CopyToClipboard from "react-copy-to-clipboard";
 
 import Hero from "../components/Hero";
 import ProjectCard from "../components/ProjectCard";
-import Button from "../ui/controls/Button";
 import Customizable from "../ui/icons/Customizable";
-import Link from "../ui/controls/Link";
 import {IProject} from "../types";
 import NextLink from "../ui/controls/NextLink";
-import {useToast} from "../hook/useToast";
+import {isOdd} from "../util/EvenOrOdd";
+import Heading from "../ui/display/Heading";
 
 interface Props {
   projects: IProject[];
 }
 
 const Home: React.FC<Props> = ({projects}) => {
-  const toast = useToast();
   const mostImportant = projects.slice(0, 3);
 
   return (
     <>
       <Hero />
-      <Box fontSize="lg" mt={2}>
-        <chakra.p>
-          Hola! soy Agustin Edgardo Mansilla un desarrollador Fullstack mas enfocado en el Frontend
-          con mucha curiosidad y en constante aprendizaje, actualmente estoy desarollando con{" "}
-          <Link isExternal href="https://nextjs.org/">
-            NextJS
-          </Link>{" "}
-          un framework de React.
-        </chakra.p>
-        <chakra.p>
-          En este momento estoy en busqueda de mi primer empleo en el area IT. Ademas en mi tiempo
-          libre trabajo en desarrollar aplicaciones a conocidos. También paso el tiempo en{" "}
-          <CopyToClipboard text="agustinmme#5628">
-            <Link
-              onClick={() => {
-                toast({
-                  title: "Discord",
-                  description: "Te he copiado mi usuario",
-                  status: "success",
-                  duration: 2000,
-                });
-              }}
-            >
-              Discord
-            </Link>
-          </CopyToClipboard>
-          ,{" "}
-          <Link isExternal href="https://twitter.com/agustinmme1">
-            Twitter
-          </Link>{" "}
-          y
-          <Link isExternal href="https://www.linkedin.com/in/agustinmme/">
-            Linkedin
-          </Link>
-          donde aprendo y público mis trabajos.
-        </chakra.p>
-      </Box>
 
-      <Text as="h2" fontSize={{base: "2xl", md: "4xl"}} fontWeight={"600"} my={8}>
+      <Heading mb={8} mt={16}>
         Proyectos.
-      </Text>
+      </Heading>
 
-      {mostImportant.map((project) => (
-        <ProjectCard key={project.id} project={project} />
+      {mostImportant.map((project, index) => (
+        <ProjectCard key={index} project={project} side={isOdd(index)} />
       ))}
-
-      <NextLink href="/project">
-        <Button m={"auto"} mt="10" size="lg" width={"80%"}>
-          ver mas proyectos
-        </Button>
-      </NextLink>
-      <Text as="h2" fontSize={{base: "xl", md: "3xl"}} fontWeight={"600"} my={8}>
-        Languages && Tools.
-      </Text>
-      <Grid gridGap={8} templateColumns="repeat(auto-fill, minmax(120px, 1fr))">
+      <Box alignItems="center" display="flex" justifyContent="center" my={14}>
+        <NextLink href="/projects">
+          <Button
+            _active={{color: "black", bg: "primary.200"}}
+            _hover={{color: "black", bg: "primary.200"}}
+            color={"black"}
+            mx={"auto"}
+            size={"lg"}
+            variant={"ghost"}
+          >
+            Ver mas projectos
+          </Button>
+        </NextLink>
+      </Box>
+      <Heading my={8}>Languages && Tools.</Heading>
+      <Grid gridGap={8} p={2} templateColumns="repeat(auto-fill, minmax(120px, 1fr))">
         <Customizable icon={SiNextdotjs} title={"NextJS"} />
         <Customizable icon={SiTypescript} title={"Typescript"} />
         <Customizable icon={SiChakraui} title={"ChakraUI"} />

@@ -11,7 +11,7 @@ const Logo: React.FC<TextProps> = ({...props}) => {
         position: "absolute",
         bottom: 3,
         left: 0,
-        bg: "primary.100",
+        bg: "primary.200",
         transform: "rotate(-5deg)",
         zIndex: -1,
       }}

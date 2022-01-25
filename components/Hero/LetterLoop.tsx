@@ -65,7 +65,7 @@ const LetterLoop: React.FC<Props> = () => {
         >
           <Heading
             color="primary.200"
-            fontSize={{base: "4xl", md: "5xl", lg: "6xl"}}
+            fontSize={{base: "4xl", md: "6xl", lg: "7xl"}}
             fontWeight={"700"}
           >
             {texts[index]}

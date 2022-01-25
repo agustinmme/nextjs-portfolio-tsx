@@ -12,7 +12,7 @@ const Layout: React.FC<Props> = ({children}) => {
     <>
       <Background />
       <Navbar />
-      <Container maxW="2xl">
+      <Container maxW="5xl">
         {children}
         <Footer />
       </Container>

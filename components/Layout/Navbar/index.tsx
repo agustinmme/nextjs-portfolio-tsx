@@ -1,10 +1,14 @@
-import {Flex, Container} from "@chakra-ui/react";
+import {Flex, Container, Stack} from "@chakra-ui/react";
+import React from "react";
 
 import Logo from "../../../ui/static/Logo";
 import NextLink from "../../../ui/controls/NextLink";
 
-import NavModal from "./NavModal";
-const Navbar = () => {
+import MobileNav from "./MobileNav";
+import NavItem from "./NavItem";
+
+interface Props {}
+const Navbar: React.FC<Props> = () => {
   return (
     <Flex
       as="nav"
@@ -20,12 +24,25 @@ const Navbar = () => {
       w="full"
       zIndex="10"
     >
-      <Container maxW={"2xl"}>
+      <Container maxW={"5xl"}>
         <Flex direction="row" justifyContent="space-between">
           <NextLink href={"/"} mt="3" p="0">
             <Logo fontSize={"3xl"} />
           </NextLink>
-          <NavModal />
+          <Flex display={{base: "none", md: "flex"}}>
+            <Stack isInline alignItems={"center"} gap={0} justifyContent={"center"}>
+              <NavItem>
+                <NextLink href="/">Inicio</NextLink>
+              </NavItem>
+              <NavItem>
+                <NextLink href="/projects">Proyectos</NextLink>
+              </NavItem>
+              <NavItem>
+                <NextLink href="/contact">Contacto</NextLink>
+              </NavItem>
+            </Stack>
+          </Flex>
+          <MobileNav />
         </Flex>
       </Container>
     </Flex>

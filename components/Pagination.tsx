@@ -31,10 +31,14 @@ const Pagination: React.FC<Props> = ({next, back, currentPage, maxPage}) => {
     <>
       <Stack isInline alignItems={"center"} gap={5} justifyContent={"center"} mt="10">
         <IconButton
+          _active={{color: "black", bg: "primary.200"}}
+          _hover={{color: "black", bg: "primary.200"}}
           aria-label="Atras"
+          color={"black"}
           colorScheme="secondary"
           fontSize="xl"
           icon={<IoIosArrowBack />}
+          isDisabled={currentPage === 1}
           variant="ghost"
           onClick={handlerBack}
         />
@@ -48,10 +52,14 @@ const Pagination: React.FC<Props> = ({next, back, currentPage, maxPage}) => {
           {maxPage}
         </Text>
         <IconButton
+          _active={{color: "black", bg: "primary.200"}}
+          _hover={{color: "black", bg: "primary.200"}}
           aria-label="Adelante"
+          color={"black"}
           colorScheme="secondary"
           fontSize="xl"
           icon={<IoIosArrowForward />}
+          isDisabled={currentPage === maxPage}
           variant="ghost"
           onClick={handlerNext}
         />

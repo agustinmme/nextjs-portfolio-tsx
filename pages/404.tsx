@@ -1,8 +1,8 @@
-import {Box, Heading, Text} from "@chakra-ui/react";
+import {Box, Text, Button} from "@chakra-ui/react";
+import Image from "next/image";
 import React from "react";
 
 import NextLink from "../ui/controls/NextLink";
-import Button from "../ui/controls/Button";
 
 interface Props {}
 
@@ -16,15 +16,12 @@ const notFound: React.FC<Props> = () => {
       textAlign="center"
     >
       <Box>
-        <Heading
-          as="h2"
-          backgroundClip="text"
-          bgGradient="linear(to-r, primary.300, primary.400)"
-          display="inline-block"
-          size="4xl"
-        >
-          404
-        </Heading>
+        <Image
+          alt="Para,la página que estás buscando no existe"
+          height={500}
+          src={"/assets/image/not-found.png"}
+          width={500}
+        />
         <Text fontSize="lg" mb={2} mt={3}>
           Page Not Found
         </Text>
@@ -32,8 +29,8 @@ const notFound: React.FC<Props> = () => {
           {"La página que estás buscando no parece existir"}
         </Text>
         <NextLink href="/">
-          <Button mx="auto" size={"xl"} w="50%">
-            GO HOME
+          <Button p={3} size={"xl"} variant={"ghost"}>
+            Volver
           </Button>
         </NextLink>
       </Box>
