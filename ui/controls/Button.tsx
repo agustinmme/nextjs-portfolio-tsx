@@ -15,17 +15,12 @@ export const Button: React.FC<ButtonProps> = ({children, ...props}) => (
       color: "black",
     }}
     background="white"
-    borderColor="black"
-    borderStyle="solid"
-    borderWidth="3px"
     color="black"
-    display="block"
     fontWeight="bold"
     height="auto"
     px={2}
     py={1}
-    rounded={0}
-    size={"xs"}
+    rounded={"lg"}
     textTransform="uppercase"
     transform="translate3d(0,0,0)"
     transition="all 0.7s ease-out"

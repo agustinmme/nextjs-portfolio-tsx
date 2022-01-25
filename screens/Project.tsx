@@ -15,7 +15,7 @@ import {FaExternalLinkAlt} from "react-icons/fa";
 import {SiGithub} from "react-icons/si";
 
 import {IProject} from "../types";
-import Button from "../ui/controls/Buttons";
+import Button from "../ui/controls/Button";
 import Heading from "../ui/display/Heading";
 import Subheading from "../ui/display/Subheading";
 import {getTag} from "../util/getTag";

@@ -9,7 +9,12 @@ interface Props extends LinkProps {
 const NextLink: React.VFC<Props> = ({href, children, ...props}) => {
   return (
     <Link passHref href={href}>
-      <ChakraLink _hover={{textDecoration: "none"}} textDecoration={"none"} {...props}>
+      <ChakraLink
+        _focus={{textDecoration: "none"}}
+        _hover={{textDecoration: "none"}}
+        textDecoration={"none"}
+        {...props}
+      >
         {children}
       </ChakraLink>
     </Link>

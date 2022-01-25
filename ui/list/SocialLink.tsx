@@ -11,16 +11,22 @@ const SocialLink: React.FC<StackProps> = ({...props}) => {
 
   return (
     <>
-      <Stack isInline spacing={2} {...props}>
+      <Stack isInline spacing={{base: 5, md: 10}} {...props}>
         <Link isExternal _hover={{textDecoration: "none"}} href="https://github.com/agustinmme">
-          <Customizable icon={SiGithub} padding={2} size={14} title="Github" />
+          <Customizable icon={SiGithub} padding={2} size={14} text={"Ir a github"} title="Github" />
         </Link>
         <Link
           isExternal
           _hover={{textDecoration: "none"}}
           href="https://www.linkedin.com/in/agustinmme/"
         >
-          <Customizable icon={SiLinkedin} padding={2} size={14} title="Linkedin" />
+          <Customizable
+            icon={SiLinkedin}
+            padding={2}
+            size={14}
+            text="Ir a linkedin"
+            title="Linkedin"
+          />
         </Link>
         <CopyToClipboard text="agustinmme#5628">
           <Customizable
@@ -28,6 +34,7 @@ const SocialLink: React.FC<StackProps> = ({...props}) => {
             icon={SiDiscord}
             padding={2}
             size={14}
+            text="Copiar usuario"
             title="Discord"
             onClick={() => {
               toast({

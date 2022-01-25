@@ -2,6 +2,8 @@ import {Box, Icon, Text} from "@chakra-ui/react";
 import React from "react";
 import {IconType} from "react-icons";
 
+import Tooltip from "../display/Tooltip";
+
 interface Props {
   icon: IconType;
   title?: string;
@@ -9,34 +11,41 @@ interface Props {
   padding?: number;
   onClick?: () => void;
   cursor?: string;
+  text?: string;
 }
 
 const CustomizableIcon: React.FC<Props> = ({
   icon,
-  size = 16,
-  padding = 3,
+  size = 14,
+  padding = 2,
   title,
   onClick,
   cursor,
+  text,
 }) => {
   return (
-    <Box
-      align="center"
-      bg={"primary.200"}
-      borderRadius="lg"
-      color={"secondary.800"}
-      cursor={cursor}
-      justifyContent={"center"}
-      m={"auto"}
-      px={padding * 2}
-      py={padding}
-      onClick={onClick}
-    >
-      <Box>
-        <Icon as={icon} h={size} p={2} w={size} />
-        <Text fontSize={"sm"}>{title}</Text>
+    <Tooltip aria-label={`${title}`} label={text}>
+      <Box
+        align="center"
+        bg={"white"}
+        border="2px solid"
+        color={"secondary.800"}
+        cursor={cursor}
+        justifyContent={"center"}
+        m={"auto"}
+        px={padding * 2}
+        py={padding}
+        onClick={onClick}
+      >
+        <Box bg={"black"} p={2}>
+          <Icon as={icon} color="yellow.200" h={size} mb={-2} w={size} />
+        </Box>
+
+        <Text color="black" fontSize={"sm"} mt={2}>
+          {title}
+        </Text>
       </Box>
-    </Box>
+    </Tooltip>
   );
 };
 

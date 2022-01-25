@@ -8,6 +8,7 @@ const Link: React.FC<LinkProps> = ({children, ...props}) => {
     <>
       {" "}
       <LinkChakra
+        _active={{outline: "none", background: `#${primary}`, color: "black"}}
         _focus={{
           outline: "none",
           background: `#${primary}`,
