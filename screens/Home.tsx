@@ -16,7 +16,6 @@ import ProjectCard from "../components/ProjectCard";
 import Customizable from "../ui/icons/Customizable";
 import {IProject} from "../types";
 import NextLink from "../ui/controls/NextLink";
-import {isOdd} from "../util/EvenOrOdd";
 import Heading from "../ui/display/Heading";
 
 interface Props {
@@ -25,6 +24,10 @@ interface Props {
 
 const Home: React.FC<Props> = ({projects}) => {
   const mostImportant = projects.slice(0, 3);
+
+  const isOdd = (n: number) => {
+    return n % 2 == 1;
+  };
 
   return (
     <>

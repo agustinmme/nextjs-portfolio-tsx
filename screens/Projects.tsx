@@ -1,4 +1,4 @@
-import {Box, Button, Text, useDisclosure, VStack} from "@chakra-ui/react";
+import {Box, Text, useDisclosure, VStack} from "@chakra-ui/react";
 import React from "react";
 import {FaFilter} from "react-icons/fa";
 
@@ -7,7 +7,6 @@ import ProjectCard from "../components/ProjectCard";
 import usePagination from "../hook/usePagination";
 import {IProject} from "../types";
 import Heading from "../ui/display/Heading";
-import {isOdd} from "../util/EvenOrOdd";
 
 interface Props {
   data: IProject[];
@@ -42,6 +41,10 @@ const Projects: React.FC<Props> = ({data}) => {
 
     setProjects(data.filter((elem) => elem.tags.includes(tag)));
     onClose();
+  };
+
+  const isOdd = (n: number) => {
+    return n % 2 == 1;
   };
 
   return (
