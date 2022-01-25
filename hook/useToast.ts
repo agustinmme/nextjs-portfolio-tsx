@@ -10,7 +10,7 @@ export function useToast() {
         title,
         description,
         status,
-        position: "top",
+        position: "top-right",
         duration: duration,
         isClosable: true,
       }),
