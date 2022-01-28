@@ -59,10 +59,10 @@ const Home: React.FC<Props> = ({projects}) => {
         <Customizable icon={SiNextdotjs} title={"NextJS"} />
         <Customizable icon={SiTypescript} title={"Typescript"} />
         <Customizable icon={SiChakraui} title={"ChakraUI"} />
-        <Customizable icon={SiHtml5} title={"Html"} />
-        <Customizable icon={SiCss3} title={"Css"} />
         <Customizable icon={SiReact} title={"React"} />
         <Customizable icon={SiNodedotjs} title={"Node"} />
+        <Customizable icon={SiHtml5} title={"Html"} />
+        <Customizable icon={SiCss3} title={"Css"} />
         <Customizable icon={SiGithub} title={"Github"} />
       </Grid>
     </>
