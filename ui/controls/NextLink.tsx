@@ -11,6 +11,7 @@ const NextLink: React.VFC<Props> = ({href, children, ...props}) => {
     <Link passHref href={href}>
       <ChakraLink
         _focus={{textDecoration: "none"}}
+        _focusVisible={{borderBottom: "2px solid", borderBottomColor: "primary.200"}}
         _hover={{textDecoration: "none"}}
         textDecoration={"none"}
         {...props}
