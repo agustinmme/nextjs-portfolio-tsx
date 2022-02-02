@@ -67,6 +67,7 @@ const FormContact: React.FC<Props> = () => {
             </FormLabel>
             <InputGroup borderColor="secondary.300">
               <Input
+                autoComplete="off"
                 border={"3px solid"}
                 borderColor="secondary.900"
                 focusBorderColor="primary.400"
@@ -86,6 +87,7 @@ const FormContact: React.FC<Props> = () => {
               _hover={{
                 borderColor: "secondary.300",
               }}
+              autoComplete="off"
               border={"3px solid"}
               borderColor="secondary.900"
               focusBorderColor="primary.400"
